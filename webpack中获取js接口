@@ -5,7 +5,12 @@ js_folder_path = "D:\project\dist_user"
 js_files = [os.path.join(js_folder_path, f) for f in os.listdir(js_folder_path) if f.endswith(".js")]
 
 # 定义要查找的API
-apis = ["name","number","phone","password","Images","Media","Camera","Video",
+apis = [MediaStore.Images.Media.EXTERNAL_CONTENT_URI",
+        "MediaStore.Images.Media.DATA",
+        "ContactsContract.Contacts.CONTENT_URI",
+        "ContactsContract.CommonDataKinds.Phone.CONTENT_URI",
+        "Telephony.Sms.CONTENT_URI",
+        "MediaRecorder.AudioSource.MIC",
        
          #注意：有其他新接口可在此添加~~~
  
