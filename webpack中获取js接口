@@ -1,0 +1,25 @@
+import os
+
+# 获取JS文件夹中所有JS文件的路径
+js_folder_path = "D:\project\dist_user"
+js_files = [os.path.join(js_folder_path, f) for f in os.listdir(js_folder_path) if f.endswith(".js")]
+
+# 定义要查找的API
+apis = ["name","number","phone","password","Images","Media","Camera","Video",
+       
+         #注意：有其他新接口可在此添加~~~
+ 
+        ]
+
+# 遍历每个JS文件，查找包含指定API的代码行
+for js_file in js_files:
+    with open(js_file, "r",encoding='utf-8') as f:
+        lines = f.readlines()
+        for line_num, line in enumerate(lines):
+            for api in apis:
+                if api in line:
+                    print(f"JS文件：{js_file}，第{line_num + 1}行，API：{api}")
+
+                    # 将结果保存到文本文件中
+                    with open("api_results4.txt", "a") as result_file:
+                        result_file.write(f"JS文件：{js_file}，第{line_num + 1}行，API：{api}\n")
